@@ -2,11 +2,11 @@ on:
   push:
     branches:
       - main
-    paths:
-      - .github/workflows/**/*.yaml
-      - dist/**/*.css
-      - dist/**/*.html
-      - src/**/*.ts
+    # paths:
+    #   - .github/workflows/**/*.yaml
+    #   - dist/**/*.css
+    #   - dist/**/*.html
+    #   - src/**/*.ts
 
   workflow_dispatch:
 
