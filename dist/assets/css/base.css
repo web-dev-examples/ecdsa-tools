@@ -1,0 +1,77 @@
+/**
+ * Define default styling for elements common to most if not all site pages.
+ *
+ * Minimalistic because intended use case is with blocking `link`, ex;
+ *
+ * ```html
+ * <link blocking="render" rel="stylesheet" href="assets/css/base.css">
+ * ```
+ *
+ * @author S0AndS0
+ * @license https://github.com/web-dev-examples/ecdsa
+ */
+
+:root {
+	--gap-medium: 10rem;
+	--gap-small: 3rem;
+}
+
+html {
+	/* Center body left/right within limits, otherwise allow horizontal scrolling */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 80ch;
+
+	& body {
+		max-width: 120ch;
+
+		/* Push footer to bottom of viewport */
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		grid-template-columns: 100%;
+		min-height: 100vh;
+		min-height: 100svh;
+		/* ... And add margin to direct children to mitigate showing unnecessary scrollbar  */
+		& > * { margin: 1rem; }
+
+		/* Navigation link containers */
+		& header nav,
+		& footer {
+			display: flex;
+			align-items: center;
+		}
+
+		/* Navigation link lists */
+		& header nav ul,
+		& footer ul {
+			list-style-type: none;
+			padding-inline-start: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			gap: var(--gap-small);
+		}
+
+		& header {
+			/* Side by side h1 and site nav */
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: var(--gap-medium);
+
+			& nav {
+				flex-direction: column;
+				justify-content: space-evenly;
+			}
+		}
+
+		& footer {
+			justify-content: space-between;
+			gap: var(--gap-medium);
+		}
+	}
+}
+

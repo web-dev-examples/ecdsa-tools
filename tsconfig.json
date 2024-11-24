@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"outDir": "dist/assets/js",
+		"target": "es2022",
+		"module": "es2022",
+		"lib": ["DOM", "DOM.Iterable", "es2022"],
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"removeComments": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"/assets/js/third-party/ethers.min.js": [
+				"node_modules/ethers/lib.esm/index.d.ts"
+			]
+		}
+	},
+	"include": ["src/assets/js/**/*.ts", "./@types"],
+	"exclude": ["node_modules"]
+}

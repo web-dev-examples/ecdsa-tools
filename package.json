@@ -1,0 +1,53 @@
+{
+  "name": "@web-dev-examples/ecdsa",
+  "version": "0.0.1",
+  "description": "Example of using Ethers JS and MetaMask for ECDSA signature creation and verification",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "ts-build": "tsc --project tsconfig.json",
+    "ts-watch": "tsc --project tsconfig.json --watch",
+    "ts-lint": "npx eslint ts/assets --ext .ts,.tsx",
+    "serve": "http-server -a 127.0.0.1 -p 8080 dist",
+    "ci-build": "npm run ts-build && node scripts/post-build.mjs"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "options": {
+          "semi": true,
+          "trailingComma": "es5",
+          "printWidth": 119,
+          "singleQuote": true,
+          "indent_style": "tab"
+        }
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/web-dev-examples/ecdsa.git"
+  },
+  "keywords": [
+    "metamask",
+    "dapp"
+  ],
+  "author": "S0AndS0",
+  "license": "https://github.com/web-dev-examples/ecdsa",
+  "bugs": {
+    "url": "https://github.com/web-dev-examples/ecdsa/issues"
+  },
+  "homepage": "https://github.com/web-dev-examples/ecdsa#readme",
+  "devDependencies": {
+    "@metamask/sdk": "^0.30.3",
+    "@types/react": "^18.3.12",
+    "@types/readable-stream": "^4.0.18",
+    "@types/ws": "^8.5.13",
+    "http-server": "^14.1.1",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "ethers": "^6.13.4"
+  }
+}

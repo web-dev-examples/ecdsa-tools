@@ -1,0 +1,57 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/**/*.yaml
+      - dist/**/*.css
+      - dist/**/*.html
+      - src/**/*.ts
+
+  workflow_dispatch:
+
+jobs:
+  ##
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Transpile TypeScript into JavaScript and copy dependencies
+        run: npm run ci-build
+
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  ##
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

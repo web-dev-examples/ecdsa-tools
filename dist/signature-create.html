@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="color-scheme" content="light dark">
+		<link blocking="render" rel="stylesheet" href="assets/css/base.css">
+
+		<!-- Thanks be to https://realfavicongenerator.net -->
+		<link rel="icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="site.webmanifest" />
+		<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<script src="assets/js/signature-create.js" type="module"></script>
+
+		<title>Sign Text</title>
+	</head>
+
+	<body>
+		<header>
+			<h1>Sign Text</h1>
+
+			<nav>
+				<label for="">Site Navigation</label>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="signature-create.html">Sign Text</a></li>
+					<li><a href="signature-verify.html">Verify Signature</a></li>
+					<li><a href="terms-of-use.html">ToS</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<button id="button__authenticate_metamask">Authenticate MetaMask</button>
+
+			<form action="" id="form__sign">
+				<label for="textarea__input_for_signing">Input text</label>
+				<br />
+				<textarea id="textarea__input_for_signing" name="" cols="30" rows="10"></textarea>
+				<br />
+				<button id="button__sign_text">Sign Text</button>
+			</form>
+
+			<div id="signature_results__container">
+				<label for="textarea__signature_output">Signature</label>
+				<br />
+				<textarea id="textarea__signature_output" name="" cols="30" rows="1" placeholder="0x<DEADB33F>" readonly></textarea>
+				<br />
+			</div>
+
+			<style>
+				#form__sign,
+				#signature_results__container {
+					& label {
+						display: inline-block;
+					}
+
+					& textarea,
+					& label {
+						width: 100%;
+					}
+				}
+
+				#signature_results__container {
+					&:has(#textarea__signature_output:placeholder-shown) {
+						display: none;
+					}
+				}
+			</style>
+
+			<hr>
+			<section>
+				<header>
+					<h2>Usage instructions</h2>
+				</header>
+
+				<article>
+					<label for="button__authenticate_metamask" >
+						<h3>Authenticate MetaMask</h3>
+					</label>
+
+					<p>
+						Click to show dialog for this site to request access to your
+						MetaMask web-browser extension.
+					</p>
+				</article>
+
+				<article>
+					<label for="textarea__input_for_signing">
+						<h3>Input text</h3>
+					</label>
+
+					<p>
+						Input text you wish to sign with your primary private key/address,
+					</p>
+				</article>
+
+				<article>
+					<label for="button__sign_text">
+						<h3>Sign Text</h3>
+					</label>
+
+					<p>
+						Click to have this site submit signature request to your MetaMask
+						web-browser extension.
+					</p>
+				</article>
+			</section>
+
+			<hr>
+			<section>
+				<header>
+					<h2>Warnings and notes</h2>
+				</header>
+
+				<p>
+					Signing data with keys crypto-coin wallet(s) has some risks some, but
+					not all, of which will be listed in the following section(s).
+				</p>
+
+				<p>
+					As always treat anything you consume online with a health level of
+					scepticism ;-)
+				</p>
+
+				<article>
+					<h3>Do and do not-s of using tools provided</h3>
+
+					<p>
+						<strong>Do</strong> consider tipping the author
+						<a href="https://app.ens.domains/s0ands0.eth">
+							<code>S0AndS0.eth</code>
+						</a>
+						if you found these tools useful.
+					</p>
+
+					<p>
+						<strong>Do</strong> consider adding a nonce, or other pseudo-random
+						data to "Input text" to be signed.
+					</p>
+
+					<p>
+						<strong>Do not</strong> sign data from untrusted parties.
+					</p>
+
+					<p>
+						<strong>Do not</strong> blame anyone but yourself if you sign
+						"Input text" that drains your wallet and/or breaches your privacy.
+					</p>
+
+					<p>
+						<strong>Do not</strong> treat anything on this site as advice of a
+						financial, legal, and/or professional advice.
+					</p>
+				</article>
+			</section>
+		</main>
+
+		<footer>
+			<nav>
+				<ul>
+					<li><a href="https://github.com/S0AndS0">Author: S0AndS0</a></li>
+					<li><a href="https://github.com/web-dev-examples/ecdsa">Source code: GitHub</a></li>
+				</ul>
+			</nav>
+			<span id="copywrite">Copyright © Some Rights Reserved</span>
+		</footer>
+	</body>
+</html>
