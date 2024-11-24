@@ -3,7 +3,7 @@
 /**
  * @file MetaMask integration example for signing text
  * @author S0AndS0
- * @license https://github.com/web-dev-examples/ecdsa
+ * @license https://github.com/web-dev-examples/ecdsa-tools
  */
 
 import type MetaMaskSDK from '@metamask/sdk';

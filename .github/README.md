@@ -276,7 +276,6 @@ For further details review full length version of
   https://github.com/web-dev-examples/ecdsa-tools/commits/master
   "&#x1F4DD; History of changes on this branch"
 
-
 [ecdsa_tools__community]:
   https://github.com/web-dev-examples/ecdsa-tools/community
   "&#x1F331; Dedicated to functioning code"
@@ -317,19 +316,12 @@ For further details review full length version of
 [badge__master__ecdsa_tools__source_code]:
   https://img.shields.io/github/repo-size/web-dev-examples/ecdsa-tools
 
-
-
-
-
-
 [sponsor__shields_io__liberapay]:
   https://img.shields.io/static/v1?logo=liberapay&label=Sponsor&message=web-dev-examples
 
 [sponsor__link__liberapay]:
   https://liberapay.com/web-dev-examples
   "&#x1F4B1; Sponsor developments and projects that web-dev-examples maintains via Liberapay"
-
-
 
 [badge__github_actions]:
   https://github.com/web-dev-examples/ecdsa-tools/actions/workflows/github-pages.yaml/badge.svg?branch=master

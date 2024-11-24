@@ -1,5 +1,5 @@
 {
-  "name": "@web-dev-examples/ecdsa",
+  "name": "@web-dev-examples/ecdsa-tools",
   "version": "0.0.1",
   "description": "Example of using Ethers JS and MetaMask for ECDSA signature creation and verification",
   "type": "module",
@@ -27,18 +27,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/web-dev-examples/ecdsa.git"
+    "url": "git+ssh://git@github.com/web-dev-examples/ecdsa-tools.git"
   },
   "keywords": [
     "metamask",
     "dapp"
   ],
   "author": "S0AndS0",
-  "license": "https://github.com/web-dev-examples/ecdsa",
+  "license": "https://github.com/web-dev-examples/ecdsa-tools",
   "bugs": {
-    "url": "https://github.com/web-dev-examples/ecdsa/issues"
+    "url": "https://github.com/web-dev-examples/ecdsa-tools/issues"
   },
-  "homepage": "https://github.com/web-dev-examples/ecdsa#readme",
+  "homepage": "https://github.com/web-dev-examples/ecdsa-tools#readme",
   "devDependencies": {
     "@metamask/sdk": "^0.30.3",
     "@types/react": "^18.3.12",
