@@ -14,7 +14,7 @@
   "prettier": {
     "overrides": [
       {
-        "files": ["*.ts"],
+        "files": ["*js", "*.ts"],
         "options": {
           "semi": true,
           "trailingComma": "es5",

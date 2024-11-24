@@ -32,26 +32,37 @@ const dependencies = {
 	},
 };
 
-
 (async () => {
-	await Promise.all(Object.entries(dependencies).map(async ([name, { source, destination }]) => {
-		const source_path = [repo_root].concat(source.split('/').join(path.sep)).join(path.sep);
-		const destination_path = [repo_root].concat(destination.split('/').join(path.sep)).join(path.sep);
+	await Promise.all(
+		Object.entries(dependencies).map(async ([name, { source, destination }]) => {
+			const source_path = [repo_root].concat(source.split('/').join(path.sep)).join(path.sep);
 
-		return fs.access(source_path)
-			.catch(() => {
-				throw new Error(`${name} path does not exist at -> ${source_path}`);
-			})
-			.then(() => {
-				return fs.access(destination_path);
-			})
-			.catch(() => {
-				console.error(`${name} path does not exist at -> ${destination_path}`);
-			})
-			.then(() => {
-				console.warn(`Copying ${name} dependency from ${source_path} to ${destination_path}`);
-				return fs.copyFile(source_path, destination_path);
-			});
-	}));
+			const destination_path = [repo_root].concat(destination.split('/').join(path.sep)).join(path.sep);
+
+			const destination_directory = path.dirname(destination_path);
+
+			return fs
+				.access(destination_directory)
+				.catch(() => {
+					return fs.mkdir(destination_directory, { recursive: true });
+				})
+				.then(() => {
+					return fs
+						.access(source_path)
+						.catch(() => {
+							throw new Error(`${name} path does not exist at -> ${source_path}`);
+						})
+						.then(() => {
+							return fs.access(destination_path);
+						})
+						.catch(() => {
+							console.error(`${name} path does not exist at -> ${destination_path}`);
+						})
+						.then(() => {
+							console.warn(`Copying ${name} dependency from ${source_path} to ${destination_path}`);
+							return fs.copyFile(source_path, destination_path);
+						});
+				});
+		})
+	);
 })();
-
