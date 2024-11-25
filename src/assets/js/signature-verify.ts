@@ -8,7 +8,10 @@
 
 import type MetaMaskSDK from '@metamask/sdk';
 
-import { ethers } from '/assets/js/third-party/ethers.min.js';
+// TODO: Find a cleaner method of satisfying TypeScript
+import type { ethers as EthersTypes } from 'ethers';
+/* @ts-ignore */
+import { ethers } from './third-party/ethers.min.js';
 
 window.addEventListener('load', (_event) => {
 	const form__verify = document.getElementById('form__verify') as HTMLFormElement;
@@ -51,7 +54,8 @@ window.addEventListener('load', (_event) => {
 
 		let signer_address;
 		try {
-			signer_address = ethers.verifyMessage(textarea__signature_message.value, textarea__signature_input.value);
+			// TODO: Find a cleaner method of satisfying TypeScript
+			signer_address = (ethers as typeof EthersTypes).verifyMessage(textarea__signature_message.value, textarea__signature_input.value);
 		} catch (error) {
 			console.error('Signature recovery failed with ->', { error });
 		}
