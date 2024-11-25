@@ -57,7 +57,15 @@ window.addEventListener('load', (_event) => {
 			// TODO: Find a cleaner method of satisfying TypeScript
 			signer_address = (ethers as typeof EthersTypes).verifyMessage(textarea__signature_message.value, textarea__signature_input.value);
 		} catch (error) {
-			console.error('Signature recovery failed with ->', { error });
+			textarea__verification_result.value = [
+				'🛑 Signature recovery failed with error message ->',
+				'',
+				(error as Error)?.message?.toString(),
+			].join('\n');
+
+			textarea__verification_result.dataset.valid = 'false';
+
+			throw error;
 		}
 
 		const expected_address = textarea__signature_public_address.value;
